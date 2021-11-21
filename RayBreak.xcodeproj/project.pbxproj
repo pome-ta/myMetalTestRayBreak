@@ -19,6 +19,7 @@
 		827F9E3C1DB09E7C001966D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 827F9E3B1DB09E7C001966D9 /* Assets.xcassets */; };
 		827F9E3F1DB09E7C001966D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827F9E3D1DB09E7C001966D9 /* LaunchScreen.storyboard */; };
 		827F9E471DB0A840001966D9 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827F9E461DB0A840001966D9 /* Renderer.swift */; };
+		BAC05C28274A763100136433 /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC05C27274A763100136433 /* Renderable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		827F9E3E1DB09E7C001966D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		827F9E401DB09E7C001966D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		827F9E461DB0A840001966D9 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		BAC05C27274A763100136433 /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			children = (
 				82474CFF1DB1E4B8000D0167 /* Node.swift */,
 				82474D011DB1E5C7000D0167 /* Plane.swift */,
+				BAC05C27274A763100136433 /* Renderable.swift */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				82474CFE1DB1DE6A000D0167 /* Shader.metal in Sources */,
 				82474D001DB1E4B8000D0167 /* Node.swift in Sources */,
 				82474D061DB1E92F000D0167 /* GameScene.swift in Sources */,
+				BAC05C28274A763100136433 /* Renderable.swift in Sources */,
 				827F9E371DB09E7C001966D9 /* ViewController.swift in Sources */,
 				827F9E471DB0A840001966D9 /* Renderer.swift in Sources */,
 				82474D041DB1E8EE000D0167 /* Scene.swift in Sources */,

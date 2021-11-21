@@ -20,35 +20,37 @@
  * THE SOFTWARE.
  */
 
-#include <metal_stdlib>
-using namespace metal;
+import MetalKit
 
-struct Constants {
-  float animateBy;
-};
-
-struct VertexIn {
-  float4 position [[ attribute(0) ]];
-  float4 color [[ attribute(1) ]];
-};
-
-struct VertexOut {
-  float4 position [[ position ]];
-  float4 color;
-};
-
-vertex VertexOut vertex_shader(const VertexIn vertexIn [[ stage_in ]]) {
-  
-  VertexOut vertexOut;
-  vertexOut.position = vertexIn.position;
-  vertexOut.color = vertexIn.color;
-
-  return vertexOut;
+protocol Renderable {
+  var pipelineState: MTLRenderPipelineState! { get set }
+  var vertexFunctionName: String { get }
+  var fragmentFunctionName: String { get }
+  var vertexDescriptor: MTLVertexDescriptor { get }
 }
 
-fragment half4 fragment_shader(VertexOut vertexIn [[ stage_in ]]) {
-  float grayColor = (vertexIn.color.r +
-                     vertexIn.color.g +
-                     vertexIn.color.b) / 3;
-  return half4(grayColor, grayColor, grayColor, 1);
+extension Renderable {
+  func buildPipelineState(device: MTLDevice) -> MTLRenderPipelineState {
+    let library = device.makeDefaultLibrary()
+    let vertexFunction = library?.makeFunction(name: vertexFunctionName)
+    let fragmentFunction = library?.makeFunction(name: fragmentFunctionName)
+    
+    let pipelineDescriptor = MTLRenderPipelineDescriptor()
+    pipelineDescriptor.vertexFunction = vertexFunction
+    pipelineDescriptor.fragmentFunction = fragmentFunction
+    pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+    pipelineDescriptor.vertexDescriptor = vertexDescriptor
+    
+    let pipelineState: MTLRenderPipelineState
+    do {
+      pipelineState = try device.makeRenderPipelineState(descriptor: pipelineDescriptor)
+    } catch let error as NSError {
+      fatalError("error: \(error.localizedDescription)")
+    }
+    return pipelineState
+  }
+
 }
+
+
+
