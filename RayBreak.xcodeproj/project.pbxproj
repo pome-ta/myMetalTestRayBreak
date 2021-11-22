@@ -19,6 +19,10 @@
 		827F9E3C1DB09E7C001966D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 827F9E3B1DB09E7C001966D9 /* Assets.xcassets */; };
 		827F9E3F1DB09E7C001966D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827F9E3D1DB09E7C001966D9 /* LaunchScreen.storyboard */; };
 		827F9E471DB0A840001966D9 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827F9E461DB0A840001966D9 /* Renderer.swift */; };
+		BA8795C2274BBBF900459E65 /* picture-frame-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = BA8795BF274BBBF900459E65 /* picture-frame-mask.png */; };
+		BA8795C3274BBBF900459E65 /* picture-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = BA8795C0274BBBF900459E65 /* picture-frame.png */; };
+		BA8795C4274BBBF900459E65 /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = BA8795C1274BBBF900459E65 /* picture.png */; };
+		BA8795C7274BBC7600459E65 /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8795C6274BBC7600459E65 /* Texturable.swift */; };
 		BAC05C28274A763100136433 /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC05C27274A763100136433 /* Renderable.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +41,10 @@
 		827F9E3E1DB09E7C001966D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		827F9E401DB09E7C001966D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		827F9E461DB0A840001966D9 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		BA8795BF274BBBF900459E65 /* picture-frame-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picture-frame-mask.png"; sourceTree = "<group>"; };
+		BA8795C0274BBBF900459E65 /* picture-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picture-frame.png"; sourceTree = "<group>"; };
+		BA8795C1274BBBF900459E65 /* picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture.png; sourceTree = "<group>"; };
+		BA8795C6274BBC7600459E65 /* Texturable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texturable.swift; sourceTree = "<group>"; };
 		BAC05C27274A763100136433 /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +74,7 @@
 				82474CFF1DB1E4B8000D0167 /* Node.swift */,
 				82474D011DB1E5C7000D0167 /* Plane.swift */,
 				BAC05C27274A763100136433 /* Renderable.swift */,
+				BA8795C6274BBC7600459E65 /* Texturable.swift */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -89,6 +98,7 @@
 		827F9E331DB09E7C001966D9 /* RayBreak */ = {
 			isa = PBXGroup;
 			children = (
+				BA8795BE274BBBF900459E65 /* Images */,
 				827F9E341DB09E7C001966D9 /* AppDelegate.swift */,
 				827F9E361DB09E7C001966D9 /* ViewController.swift */,
 				82474D0B1DB1F68F000D0167 /* Types.swift */,
@@ -102,6 +112,16 @@
 				827F9E401DB09E7C001966D9 /* Info.plist */,
 			);
 			path = RayBreak;
+			sourceTree = "<group>";
+		};
+		BA8795BE274BBBF900459E65 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BA8795BF274BBBF900459E65 /* picture-frame-mask.png */,
+				BA8795C0274BBBF900459E65 /* picture-frame.png */,
+				BA8795C1274BBBF900459E65 /* picture.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,7 +186,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				827F9E3F1DB09E7C001966D9 /* LaunchScreen.storyboard in Resources */,
+				BA8795C3274BBBF900459E65 /* picture-frame.png in Resources */,
+				BA8795C4274BBBF900459E65 /* picture.png in Resources */,
 				827F9E3C1DB09E7C001966D9 /* Assets.xcassets in Resources */,
+				BA8795C2274BBBF900459E65 /* picture-frame-mask.png in Resources */,
 				827F9E3A1DB09E7C001966D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,6 +210,7 @@
 				82474D041DB1E8EE000D0167 /* Scene.swift in Sources */,
 				82474D0C1DB1F68F000D0167 /* Types.swift in Sources */,
 				82474D021DB1E5C7000D0167 /* Plane.swift in Sources */,
+				BA8795C7274BBC7600459E65 /* Texturable.swift in Sources */,
 				827F9E351DB09E7C001966D9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,35 +22,32 @@
 
 import MetalKit
 
-protocol Renderable {
-    var pipelineState: MTLRenderPipelineState! { get set }
-    var vertexFunctionName: String { get }
-    var fragmentFunctionName: String { get }
-    var vertexDescriptor: MTLVertexDescriptor { get }
+protocol Texturable {
+    var texture: MTLTexture? { get set }
 }
 
-extension Renderable {
-    func buildPipelineState(device: MTLDevice) -> MTLRenderPipelineState {
-        let library = device.makeDefaultLibrary()
-        let vertexFunction = library?.makeFunction(name: vertexFunctionName)
-        let fragmentFunction = library?.makeFunction(name: fragmentFunctionName)
+extension Texturable {
+    func setTexture(device: MTLDevice, imageName: String) -> MTLTexture? {
+        let textureLoader = MTKTextureLoader(device: device)
+        var texture: MTLTexture? = nil
+        let origin = NSString(string: MTKTextureLoader.Origin.bottomLeft.rawValue)
+        let textureLoaderOptions = [MTKTextureLoader.Option.origin : origin]
+        //    let textureLoaderOptions: [String: NSObject]
+        //    if #available(iOS 10.0, *) {
+        //      let origin = NSString(string: MTKTextureLoaderOriginBottomLeft)
+        //      textureLoaderOptions = [MTKTextureLoaderOptionOrigin : origin]
+        //    } else {
+        //      textureLoaderOptions = [:]
+        //    }
         
-        let pipelineDescriptor = MTLRenderPipelineDescriptor()
-        pipelineDescriptor.vertexFunction = vertexFunction
-        pipelineDescriptor.fragmentFunction = fragmentFunction
-        pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
-        pipelineDescriptor.vertexDescriptor = vertexDescriptor
-        
-        let pipelineState: MTLRenderPipelineState
-        do {
-            pipelineState = try device.makeRenderPipelineState(descriptor: pipelineDescriptor)
-        } catch let error as NSError {
-            fatalError("error: \(error.localizedDescription)")
+        if let textureURL = Bundle.main.url(forResource: imageName, withExtension: nil) {
+            do {
+                texture = try textureLoader.newTexture(URL: textureURL,
+                                                       options: textureLoaderOptions)
+            } catch {
+                print("texture not created")
+            }
         }
-        return pipelineState
+        return texture
     }
-    
 }
-
-
-
