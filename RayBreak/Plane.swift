@@ -83,6 +83,8 @@ class Plane: Node {
     // Texturable
     var texture: MTLTexture?
     
+    var maskTexture: MTLTexture?
+    
     init(device: MTLDevice) {
         super.init()
         buildBuffers(device: device)
@@ -97,6 +99,21 @@ class Plane: Node {
         }
         
         buildBuffers(device: device)
+        pipelineState = buildPipelineState(device: device)
+    }
+    
+    init(device: MTLDevice, imageName: String, maskImageName: String) {
+        super.init()
+        buildBuffers(device: device)
+        if let texture = setTexture(device: device, imageName: imageName) {
+            self.texture = texture
+            fragmentFunctionName = "textured_fragment"
+        }
+        if let maskTexture = setTexture(device: device,
+                                        imageName: maskImageName) {
+            self.maskTexture = maskTexture
+            fragmentFunctionName = "textured_mask_fragment"
+        }
         pipelineState = buildPipelineState(device: device)
     }
     
@@ -127,6 +144,8 @@ class Plane: Node {
                                       length: MemoryLayout<Constants>.stride,
                                       index: 1)
         commandEncoder.setFragmentTexture(texture, index: 0)
+        commandEncoder.setFragmentTexture(maskTexture, index: 1)
+        
         commandEncoder.drawIndexedPrimitives(type: .triangle,
                                              indexCount: indices.count,
                                              indexType: .uint16,
@@ -136,7 +155,6 @@ class Plane: Node {
 }
 
 extension Plane: Renderable {
-    
 }
 
 extension Plane: Texturable {}
