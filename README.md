@@ -6,14 +6,10 @@
 Pythonista3 でのMetal の[Repository](https://github.com/pome-ta/pystaMetalStudy)
 
 
-## tag管理
+## タグ管理
 
 最初のSample は、[5 - Shaders](https://www.raywenderlich.com/3537-beginning-metal/lessons/5) から始めている
 
 Final やChallenge を完了するたびに、tag を増やしていく想定
 
-
-## branch 管理
-
-tag だけだと、モバイル(iPhone) の確認が面倒そうなので、branch も切ることにした
 
