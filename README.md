@@ -12,4 +12,8 @@ Pythonista3 でのMetal の[Repository](https://github.com/pome-ta/pystaMetalStu
 
 Final やChallenge を完了するたびに、tag を増やしていく想定
 
+## branch 管理
 
+tag だけだと、モバイル(iPhone) の確認が面倒そうなので、branch も切ることにしたいけど
+
+結局Git 操作がよくわかってないのよね
