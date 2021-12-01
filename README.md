@@ -6,6 +6,38 @@
 Pythonista3 でのMetal の[Repository](https://github.com/pome-ta/pystaMetalStudy)
 
 
+## [xcodes](https://github.com/RobotsAndPencils/xcodes) を入れてみる
+
+
+[Xcodes.app](https://github.com/RobotsAndPencils/XcodesApp) で試して使えなかった
+
+- インストールの際に、デベロッパーアカウントがどうたら言われる
+- 毎回サインインを求められる
+
+
+コマンドラインでいいや、ということでxcodes に
+
+### 操作の手順
+
+今のところ、`brew` で落として
+
+
+```
+brew install robotsandpencils/made/xcodes
+```
+
+ついでに、`brew install aria2` 入れた
+
+
+```
+xcodes list
+```
+
+で、アカウントかくにんされた
+
+
+
+
 ## タグ管理
 
 最初のSample は、[5 - Shaders](https://www.raywenderlich.com/3537-beginning-metal/lessons/5) から始めている
